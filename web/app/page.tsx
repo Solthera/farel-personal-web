@@ -36,7 +36,7 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <NbLinkButton to="/portfolio" variant="green" size="lg">
-                Portofolio →
+                Portfolio →
               </NbLinkButton>
               <NbLinkButton to="/store" variant="yellow" size="lg">
                 Buy Product

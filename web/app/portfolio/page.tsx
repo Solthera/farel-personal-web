@@ -17,12 +17,12 @@ type Project = {
 }
 
 const projects: Project[] = [
-  { id: '1', name: 'Lumen Notes', desc: 'Aplikasi catatan markdown yang fokus pada kecepatan dan keyboard-first.', long: 'Lumen Notes adalah editor markdown ringan dengan sinkronisasi cloud, command palette, dan plugin sederhana untuk power users.', tags: ['React', 'Tauri', 'Rust'], year: 2024, color: 'bg-[var(--yellow)]' },
-  { id: '2', name: 'Pulse Analytics', desc: 'Dashboard analytics real-time tanpa cookie tracking.', long: 'Privacy-first analytics dengan dashboard bold dan API yang sederhana untuk dipasang di project apapun.', tags: ['Next.js', 'PostgreSQL', 'Go'], year: 2024, color: 'bg-[var(--blue)]' },
-  { id: '3', name: 'Brick Store', desc: 'Template ecommerce neobrutalism untuk seller indie.', long: 'Template lengkap untuk berjualan online dengan vibe neobrutalism, sudah include cart, checkout dan dashboard.', tags: ['Tailwind', 'Stripe', 'Remix'], year: 2023, color: 'bg-[var(--green)]' },
-  { id: '4', name: 'Echo Player', desc: 'Music player open source dengan visualizer minimalis.', long: 'Pemutar musik desktop ringan dengan visualizer dan fokus pada tampilan yang clean.', tags: ['Electron', 'TypeScript'], year: 2023, color: 'bg-[var(--red)]' },
-  { id: '5', name: 'Type Lab', desc: 'Playground untuk explore typografi dan kombinasi font.', long: 'Tool web untuk designer dan developer mencari pasangan font yang pas untuk project mereka.', tags: ['Vite', 'React'], year: 2022, color: 'bg-white' },
-  { id: '6', name: 'Crate CLI', desc: 'CLI scaffolding tool untuk monorepo TypeScript.', long: 'CLI yang opinionated untuk men-generate monorepo TypeScript siap pakai dengan workspace, eslint dan CI.', tags: ['Node.js', 'TypeScript'], year: 2022, color: 'bg-[var(--yellow)]' },
+  { id: '1', name: 'Lumen Notes', desc: 'Markdown notes app focused on speed and keyboard-first experience.', long: 'Lumen Notes is a lightweight markdown editor with cloud sync, command palette, and simple plugins for power users.', tags: ['React', 'Tauri', 'Rust'], year: 2024, color: 'bg-[var(--yellow)]' },
+  { id: '2', name: 'Pulse Analytics', desc: 'Real-time analytics dashboard without cookie tracking.', long: 'Privacy-first analytics with bold dashboard and simple API to install on any project.', tags: ['Next.js', 'PostgreSQL', 'Go'], year: 2024, color: 'bg-[var(--blue)]' },
+  { id: '3', name: 'Brick Store', desc: 'Neobrutalism ecommerce template for indie sellers.', long: 'Complete template for selling online with neobrutalism vibe, includes cart, checkout and dashboard.', tags: ['Tailwind', 'Stripe', 'Remix'], year: 2023, color: 'bg-[var(--green)]' },
+  { id: '4', name: 'Echo Player', desc: 'Open source music player with minimalist visualizer.', long: 'Lightweight desktop music player with visualizer and focus on clean design.', tags: ['Electron', 'TypeScript'], year: 2023, color: 'bg-[var(--red)]' },
+  { id: '5', name: 'Type Lab', desc: 'Playground to explore typography and font combinations.', long: 'Web tool for designers and developers to find the right font pairing for their projects.', tags: ['Vite', 'React'], year: 2022, color: 'bg-white' },
+  { id: '6', name: 'Crate CLI', desc: 'CLI scaffolding tool for TypeScript monorepo.', long: 'Opinionated CLI to generate ready-to-use TypeScript monorepo with workspace, eslint and CI.', tags: ['Node.js', 'TypeScript'], year: 2022, color: 'bg-[var(--yellow)]' },
 ]
 
 export default function Portfolio() {
@@ -34,7 +34,7 @@ export default function Portfolio() {
 
   return (
     <Layout>
-      <PageHeader title="Portfolio" subtitle="Kumpulan proyek personal yang dibangun dengan opini & rasa." accent="blue" />
+      <PageHeader title="Portfolio" subtitle="Collection of personal projects built with opinion & taste." accent="blue" />
 
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="flex flex-wrap gap-2 mb-8">

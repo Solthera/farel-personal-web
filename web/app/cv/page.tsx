@@ -3,23 +3,23 @@ import { PrintButton } from '@/components/nb/PrintButton'
 
 const sections = [
   {
-    title: 'Pengalaman',
+    title: 'Experience',
     color: 'border-[var(--blue)]',
     items: [
-      { period: '2023 — Now', h: 'Senior Engineer', sub: 'Acme Studio', body: 'Memimpin pengembangan platform analytics untuk klien enterprise. Stack: Next.js, Go, PostgreSQL.' },
-      { period: '2021 — 2023', h: 'Full-stack Developer', sub: 'Bright Labs', body: 'Membangun produk SaaS dari nol hingga 10k user aktif. Fokus pada DX dan performa.' },
-      { period: '2019 — 2021', h: 'Frontend Engineer', sub: 'Pixel Co.', body: 'Membangun UI library internal dan migrasi dari legacy stack ke React modern.' },
+      { period: '2023 — Now', h: 'Senior Engineer', sub: 'Acme Studio', body: 'Led development of analytics platform for enterprise clients. Stack: Next.js, Go, PostgreSQL.' },
+      { period: '2021 — 2023', h: 'Full-stack Developer', sub: 'Bright Labs', body: 'Built SaaS product from zero to 10k active users. Focused on DX and performance.' },
+      { period: '2019 — 2021', h: 'Frontend Engineer', sub: 'Pixel Co.', body: 'Built internal UI library and migrated from legacy stack to modern React.' },
     ],
   },
   {
-    title: 'Pendidikan',
+    title: 'Education',
     color: 'border-[var(--red)]',
     items: [
-      { period: '2015 — 2019', h: 'S1 Teknik Informatika', sub: 'Universitas Negeri X', body: 'Lulus dengan IPK 3.8. Riset di bidang interaksi manusia-komputer.' },
+      { period: '2015 — 2019', h: 'B.S. Computer Science', sub: 'State University X', body: 'Graduated with 3.8 GPA. Research in human-computer interaction.' },
     ],
   },
   {
-    title: 'Skill Inti',
+    title: 'Core Skills',
     color: 'border-[var(--green)]',
     items: [
       { period: 'Frontend', h: 'React, Next.js, TanStack, Tailwind', sub: '', body: '' },
@@ -34,7 +34,7 @@ export const metadata = { title: 'Farel Personal Website' }
 export default function CV() {
   return (
     <Layout>
-      <PageHeader title="Curriculum Vitae" subtitle="Ringkasan pengalaman, pendidikan, dan keahlian." accent="yellow" />
+      <PageHeader title="Curriculum Vitae" subtitle="Summary of experience, education, and expertise." accent="yellow" />
 
       <div className="mx-auto max-w-4xl px-4 py-10">
         <div className="flex justify-end mb-6">

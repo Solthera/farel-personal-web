@@ -14,7 +14,7 @@ type Order = {
   createdAt: number
 }
 
-const fmt = (n: number) => 'Rp ' + n.toLocaleString('id-ID')
+const fmt = (n: number) => '$' + (n / 1000).toFixed(0) + 'k'
 
 function useCountdown(target: number) {
   const [now, setNow] = useState(Date.now())
@@ -41,9 +41,9 @@ export default function OrderPage({ params }: { params: { orderId: string } }) {
     return (
       <Layout>
         <div className="mx-auto max-w-xl px-4 py-20 text-center">
-          <h1 className="font-display text-4xl font-bold">Pesanan tidak ditemukan</h1>
+          <h1 className="font-display text-4xl font-bold">Order not found</h1>
           <p className="mt-4 text-black/70">ID: <code className="bg-black text-white px-2 py-0.5">{orderId}</code></p>
-          <NbLinkButton to="/store" className="mt-6">Kembali ke Store</NbLinkButton>
+          <NbLinkButton to="/store" className="mt-6">Back to Store</NbLinkButton>
         </div>
       </Layout>
     )
@@ -68,13 +68,13 @@ export default function OrderPage({ params }: { params: { orderId: string } }) {
   return (
     <Layout>
       <div className="mx-auto max-w-2xl px-4 py-10">
-        <h1 className="font-display text-4xl md:text-5xl font-bold">Status Pesanan</h1>
+        <h1 className="font-display text-4xl md:text-5xl font-bold">Order Status</h1>
         <p className="mt-2 font-mono text-sm text-black/60">#{order.orderId}</p>
 
         <div className="nb-card nb-shadow-lg p-6 mt-6">
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <div>
-              <div className="text-xs uppercase font-bold tracking-widest text-black/60">Produk</div>
+              <div className="text-xs uppercase font-bold tracking-widest text-black/60">Product</div>
               <div className="font-display text-xl font-bold">{order.product.name}</div>
               <div className="mt-1 text-black/70">{fmt(order.product.price)}</div>
             </div>
@@ -83,14 +83,14 @@ export default function OrderPage({ params }: { params: { orderId: string } }) {
             </div>
           </div>
           <div className="mt-5 grid gap-2 text-sm border-t-2 border-dashed border-black/40 pt-4">
-            <div><span className="font-bold">Nama:</span> {order.name}</div>
+            <div><span className="font-bold">Name:</span> {order.name}</div>
             <div><span className="font-bold">Email:</span> {order.email}</div>
           </div>
         </div>
 
         {order.status === 'pending' && (
           <div className="nb-card mt-6 p-6">
-            <h2 className="font-display text-2xl font-bold">Bayar dengan QRIS</h2>
+            <h2 className="font-display text-2xl font-bold">Pay with QR Code</h2>
             <div className="mt-4 grid md:grid-cols-[200px_1fr] gap-6 items-start">
               <div className="border-2 border-black p-2 bg-white nb-shadow mx-auto">
                 <div className="w-[180px] h-[180px] grid grid-cols-12 gap-px bg-black p-1">
@@ -98,21 +98,21 @@ export default function OrderPage({ params }: { params: { orderId: string } }) {
                     <div key={i} className={(i * 7 + 3) % 3 === 0 ? 'bg-black' : 'bg-white'} />
                   ))}
                 </div>
-                <div className="text-center text-xs font-mono mt-2">QRIS · {fmt(order.product.price)}</div>
+                <div className="text-center text-xs font-mono mt-2">QR Code · {fmt(order.product.price)}</div>
               </div>
               <div>
                 <div className={`inline-block border-2 border-black px-3 py-1.5 font-mono font-bold ${cd.expired ? 'bg-[var(--red)] text-white' : 'bg-[var(--yellow)]'}`}>
-                  {cd.expired ? 'EXPIRED' : `Sisa ${String(cd.m).padStart(2, '0')}:${String(cd.s).padStart(2, '0')}`}
+                  {cd.expired ? 'EXPIRED' : `Time left ${String(cd.m).padStart(2, '0')}:${String(cd.s).padStart(2, '0')}`}
                 </div>
                 <ol className="mt-4 space-y-2 text-sm list-decimal pl-5">
-                  <li>Buka aplikasi e-wallet / mobile banking kamu.</li>
-                  <li>Pilih menu <b>Scan QRIS</b>.</li>
-                  <li>Scan kode di samping dan konfirmasi pembayaran.</li>
-                  <li>Tunggu beberapa detik, status akan terupdate otomatis.</li>
+                  <li>Open your e-wallet or mobile banking app.</li>
+                  <li>Select <b>Scan QR Code</b> menu.</li>
+                  <li>Scan the code on the left and confirm payment.</li>
+                  <li>Wait a few seconds, status will update automatically.</li>
                 </ol>
                 <div className="mt-5 flex flex-wrap gap-2">
-                  <NbButton variant="green" size="sm" onClick={() => setStatus('paid')}>Simulasi Sukses</NbButton>
-                  <NbButton variant="red" size="sm" onClick={() => setStatus('failed')}>Simulasi Gagal</NbButton>
+                  <NbButton variant="green" size="sm" onClick={() => setStatus('paid')}>Simulate Success</NbButton>
+                  <NbButton variant="red" size="sm" onClick={() => setStatus('failed')}>Simulate Failed</NbButton>
                 </div>
               </div>
             </div>
@@ -121,25 +121,25 @@ export default function OrderPage({ params }: { params: { orderId: string } }) {
 
         {order.status === 'paid' && (
           <div className="nb-card mt-6 p-6 bg-[var(--green)]/30">
-            <h2 className="font-display text-2xl font-bold">Pembayaran Berhasil 🎉</h2>
-            <p className="mt-2">Tautan unduhan & lisensi telah dikirim ke <b>{order.email}</b>. Silakan cek inbox atau folder spam.</p>
-            <NbLinkButton to="/store" variant="primary" className="mt-5">Belanja Lagi</NbLinkButton>
+            <h2 className="font-display text-2xl font-bold">Payment Successful 🎉</h2>
+            <p className="mt-2">Download link & license have been sent to <b>{order.email}</b>. Please check inbox or spam folder.</p>
+            <NbLinkButton to="/store" variant="primary" className="mt-5">Shop Again</NbLinkButton>
           </div>
         )}
 
         {order.status === 'failed' && (
           <div className="nb-card mt-6 p-6 bg-[var(--red)]/20">
-            <h2 className="font-display text-2xl font-bold">Pembayaran Gagal</h2>
-            <p className="mt-2">Pembayaran tidak berhasil diproses. Silakan coba lagi dengan metode yang sama.</p>
+            <h2 className="font-display text-2xl font-bold">Payment Failed</h2>
+            <p className="mt-2">Payment could not be processed. Please try again with the same method.</p>
             <div className="mt-5 flex gap-2">
-              <NbButton variant="primary" onClick={() => setStatus('pending')}>Coba Lagi</NbButton>
-              <NbLinkButton to="/store" variant="secondary">Kembali ke Store</NbLinkButton>
+              <NbButton variant="primary" onClick={() => setStatus('pending')}>Try Again</NbButton>
+              <NbLinkButton to="/store" variant="secondary">Back to Store</NbLinkButton>
             </div>
           </div>
         )}
 
         <div className="mt-8">
-          <Link href="/store" className="text-sm font-bold underline">← Lanjut belanja</Link>
+          <Link href="/store" className="text-sm font-bold underline">← Continue shopping</Link>
         </div>
       </div>
     </Layout>

@@ -18,13 +18,13 @@ type Product = {
 }
 
 const products: Product[] = [
-  { id: 'p1', name: 'Brick UI Kit', desc: '150+ komponen neobrutalism siap pakai untuk React + Tailwind.', long: 'UI kit lengkap dengan 150+ komponen, dark mode, dokumentasi, dan figma source. Lisensi untuk 1 project komersial.', price: 290000, tag: 'UI Kit', color: 'bg-[var(--yellow)]' },
-  { id: 'p2', name: 'Saas Starter', desc: 'Boilerplate Next.js + Stripe + Auth untuk launch SaaS cepat.', long: 'Boilerplate production-ready dengan Stripe, magic link auth, multi-tenant, dan landing page bold.', price: 490000, tag: 'Template', color: 'bg-[var(--blue)]' },
-  { id: 'p3', name: 'Notion OS Bold', desc: 'Template Notion untuk personal productivity gaya neobrutalism.', long: 'Template Notion lengkap untuk manage task, habit tracker, journaling dengan vibe yang berani.', price: 99000, tag: 'Notion', color: 'bg-[var(--green)]' },
-  { id: 'p4', name: 'Icon Pack 200', desc: '200 icon outline tebal yang konsisten untuk project bold.', long: '200 icon SVG dengan stroke 2.5px, optimized, tersedia dalam React, Vue dan raw SVG.', price: 149000, tag: 'Icons', color: 'bg-[var(--red)]' },
+  { id: 'p1', name: 'Brick UI Kit', desc: '150+ neobrutalism components ready to use for React + Tailwind.', long: 'Complete UI kit with 150+ components, dark mode, documentation, and figma source. License for 1 commercial project.', price: 290000, tag: 'UI Kit', color: 'bg-[var(--yellow)]' },
+  { id: 'p2', name: 'Saas Starter', desc: 'Next.js + Stripe + Auth boilerplate to launch SaaS fast.', long: 'Production-ready boilerplate with Stripe, magic link auth, multi-tenant, and bold landing page.', price: 490000, tag: 'Template', color: 'bg-[var(--blue)]' },
+  { id: 'p3', name: 'Notion OS Bold', desc: 'Notion template for personal productivity with neobrutalism style.', long: 'Complete Notion template to manage tasks, habit tracker, journaling with bold vibe.', price: 99000, tag: 'Notion', color: 'bg-[var(--green)]' },
+  { id: 'p4', name: 'Icon Pack 200', desc: '200 thick outline icons consistent for bold projects.', long: '200 SVG icons with 2.5px stroke, optimized, available in React, Vue and raw SVG.', price: 149000, tag: 'Icons', color: 'bg-[var(--red)]' },
 ]
 
-const fmt = (n: number) => 'Rp ' + n.toLocaleString('id-ID')
+const fmt = (n: number) => '$' + (n / 1000).toFixed(0) + 'k'
 
 export default function Store() {
   const router = useRouter()
@@ -45,7 +45,7 @@ export default function Store() {
 
   return (
     <Layout>
-      <PageHeader title="Store" subtitle="Produk digital — template, UI kit, dan tools yang saya gunakan sendiri." accent="green" />
+      <PageHeader title="Store" subtitle="Digital products — templates, UI kits, and tools I use myself." accent="green" />
 
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {products.map((p) => (
@@ -62,7 +62,7 @@ export default function Store() {
               <p className="text-sm text-black/70 line-clamp-2 flex-1">{p.desc}</p>
               <div className="flex gap-2">
                 <button onClick={() => setActive(p)} className="flex-1 border-2 border-black bg-orange-400 py-2 font-bold uppercase text-sm nb-shadow-sm nb-interactive">Detail</button>
-                <button onClick={() => setCheckout(p)} className="flex-1 border-2 border-black bg-green-400 py-2 font-bold uppercase text-sm nb-shadow-sm nb-interactive">Beli</button>
+                <button onClick={() => setCheckout(p)} className="flex-1 border-2 border-black bg-green-400 py-2 font-bold uppercase text-sm nb-shadow-sm nb-interactive">Buy</button>
               </div>
             </div>
           </article>
@@ -86,7 +86,7 @@ export default function Store() {
               </div>
               <p className="text-black/80">{active.long}</p>
               <NbButton variant="primary" size="lg" className="mt-6 w-full bg-slate-100 text-black" onClick={() => { setActive(null); setCheckout(active) }}>
-                Beli Sekarang
+                Buy Now
               </NbButton>
             </div>
           </div>
@@ -111,19 +111,19 @@ export default function Store() {
                   required type="email" value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className="w-full border-2 border-black px-3 py-2 bg-white focus:outline-none focus:bg-[var(--yellow)]"
-                  placeholder="kamu@email.com"
+                  placeholder="you@email.com"
                 />
               </div>
               <div>
-                <label className="block text-xs font-bold uppercase tracking-widest mb-1">Nama Lengkap</label>
+                <label className="block text-xs font-bold uppercase tracking-widest mb-1">Full Name</label>
                 <input
                   required value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   className="w-full border-2 border-black px-3 py-2 bg-white focus:outline-none focus:bg-[var(--yellow)]"
-                  placeholder="Nama kamu"
+                  placeholder="Your name"
                 />
               </div>
-              <NbButton type="submit" variant="primary" size="lg" className="w-full bg-red-500">Lanjut ke Pembayaran →</NbButton>
+              <NbButton type="submit" variant="primary" size="lg" className="w-full bg-red-500">Continue to Payment →</NbButton>
             </div>
           </form>
         </div>

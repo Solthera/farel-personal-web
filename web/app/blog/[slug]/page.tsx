@@ -48,7 +48,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           href="/blog"
           className="inline-flex items-center gap-2 text-sm font-bold uppercase border-2 border-black px-3 py-1 bg-white nb-shadow-sm nb-interactive"
         >
-          <ArrowLeft size={14} /> Kembali ke Blog
+          <ArrowLeft size={14} /> Back to Blog
         </Link>
         <header className="mt-8">
           <div className="flex items-center gap-3 text-xs font-mono uppercase text-black/60">
@@ -69,7 +69,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
             href="/blog"
             className="inline-flex items-center gap-2 text-sm font-bold uppercase border-2 border-black px-3 py-1 bg-white nb-shadow-sm nb-interactive"
           >
-            <ArrowLeft size={14} /> Kembali ke Blog
+            <ArrowLeft size={14} /> Back to Blog
           </Link>
         </div>
       </article>

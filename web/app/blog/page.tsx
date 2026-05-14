@@ -8,7 +8,7 @@ export const metadata = { title: 'Farel - Blog' }
 export default function Blog() {
   return (
     <Layout>
-      <PageHeader title="Blog" subtitle="Catatan tentang membangun produk, desain, dan hal-hal teknis yang berantakan." accent="red" />
+      <PageHeader title="Blog" subtitle="Notes about building products, design, and messy technical stuff." accent="red" />
       <div className="mx-auto max-w-3xl px-4 py-10 space-y-6">
         {posts.map((p) => (
           <Link
