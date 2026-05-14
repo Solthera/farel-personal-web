@@ -27,19 +27,19 @@ export default function Home() {
               I&apos;m <span className="bg-[var(--yellow)] border-2 border-black px-2 nb-shadow inline-block">Farel</span>
               <br />a{' '}
               <span className="bg-[var(--blue)] text-white border-2 border-black px-2 nb-shadow inline-block mt-2">
-                Software Eng
+                Software Dev
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-black/70">
-              Software Engineer & Architecture Design. I ship products, sell digital templates, and write about
-              the messy parts of building software.
+              Software Developer who solves problems by thinking in systems, designing
+              architecture, building from scratch, and diving deep into how things work.            
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <NbLinkButton to="/portfolio" variant="green" size="lg">
                 Portfolio →
               </NbLinkButton>
-              <NbLinkButton to="/store" variant="yellow" size="lg">
-                Buy Product
+              <NbLinkButton to="/cv" variant="yellow" size="lg">
+                Curriculum Vitae
               </NbLinkButton>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function Home() {
             { Icon: Github, label: 'GitHub', value: '@Solthera', href: 'https://github.com/Solthera', target: "_blank", rel: "noopener noreferrer" },
             { Icon: Linkedin, label: 'LinkedIn', value: '/in/farel', href: 'https://www.linkedin.com/in/muhammad-farel-firdaus-b7234530a/', target: "_blank", rel: "noopener noreferrer" },
             { Icon: Instagram, label: 'Instagram', value: '@farellfrs', href: 'https://www.instagram.com/farellfrs/', target: "_blank", rel: "noopener noreferrer" },
-            { Icon: Mail, label: 'Email', value: 'farelfrr09@gmail.com', href: '#', target: "_blank", rel: "noopener noreferrer" },
+            { Icon: Mail, label: 'Email', value: 'farelfrr09@gmail.com', href: '#', rel: "noopener noreferrer" },
           ].map(({ Icon, label, value, href, target, rel }) => (
             <a key={label} href={href} className="nb-card p-4 nb-interactive flex items-center gap-3" target={target} rel={rel}>
               <span className="border-2 border-black p-2 bg-[var(--yellow)]">

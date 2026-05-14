@@ -22,8 +22,9 @@ type Project = {
 
 const projects: Project[] = [
   { id: '1', name: 'Smartlock', desc: 'Open the door with just a tap card and close it automatically.', long: 'Smartlock is a project that combines IoT with Blockchain, IoT is used as a physical activity while blockchain is used as a database.', tags: ['IoT', 'Blockchain', 'Foundry'], year: 2025, color: 'bg-[var(--yellow)]', image: '/images/portfolio-assets/smartlock.jpeg', linkLiveDemo: '#', linkSourceCode: 'https://github.com/Itsjustrell/Smartlock', status: 'completed' },
-  { id: '2', name: 'LUMINA', desc: 'Makes it easier to find items or tools if someone needs them.', long: 'LUMINA is a goods procurement system at the community level to make it easier for residents to carry out their activities if they need goods or tools.', tags: ['Java', 'Spring Boot', 'PostgreSQL'], year: 2026, color: 'bg-[var(--blue)]', image: '/images/portfolio-assets/pulse.png', linkLiveDemo: '#', linkSourceCode: '#', status: 'soon' },
-  { id: '3', name: 'AssistFi', desc: 'Record finances easily and display a dashboard to make it easier to view financial data.', long: 'AssistFi is a website that makes financial recording easier, with a CSV import feature that will immediately calculate and analyze financial data, then can be exported again with structured data.', tags: ['Javascript', 'Python', 'React'], year: 2026, color: 'bg-[var(--green)]', image: '/images/portfolio-assets/brick.png', linkLiveDemo: '#', linkSourceCode: '#', status: 'soon' },
+  { id: '2', name: 'Voting DApp', desc: 'Vote safely without worrying about data being changed', long: 'Voting DApps is a blockchain-based voting website that stores voting results, the data cannot be manipulated, such as by changing or deleting them.', tags: ['Blockchain', 'Foundry', 'React'], year: 2025, color: 'bg-[var(--yellow)]', image: '/images/portfolio-assets/voting-dapp.jpeg', linkLiveDemo: '#', linkSourceCode: 'https://github.com/Itsjustrell/Smartlock', status: 'completed' },
+  { id: '3', name: 'LUMINA', desc: 'Makes it easier to find items or tools if someone needs them.', long: 'LUMINA is a goods procurement system at the community level to make it easier for residents to carry out their activities if they need goods or tools.', tags: ['Java', 'Spring Boot', 'PostgreSQL'], year: 2026, color: 'bg-[var(--blue)]', image: '/images/portfolio-assets/pulse.png', linkLiveDemo: '#', linkSourceCode: '#', status: 'soon' },
+  { id: '4', name: 'AssistFi', desc: 'Record finances easily and display a dashboard to make it easier to view financial data.', long: 'AssistFi is a website that makes financial recording easier, with a CSV import feature that will immediately calculate and analyze financial data, then can be exported again with structured data.', tags: ['Javascript', 'Python', 'React'], year: 2026, color: 'bg-[var(--green)]', image: '/images/portfolio-assets/brick.png', linkLiveDemo: '#', linkSourceCode: '#', status: 'soon' },
 ]
 
 function ProjectImage({ project, variant = 'card' }: { project: Project; variant?: 'card' | 'modal' }) {
@@ -61,7 +62,7 @@ export default function Portfolio() {
 
   return (
     <Layout>
-      <PageHeader title="Portfolio" subtitle="Collection of personal projects built with opinion & taste." accent="blue" />
+      <PageHeader title="Portfolio" subtitle="A collection of projects I've built." accent="blue" />
 
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="flex flex-wrap gap-2 mb-8">

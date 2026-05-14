@@ -7,7 +7,7 @@ export function Footer() {
         <div>
           <h3 className="font-display text-2xl font-bold">Farel Firdaus</h3>
           <p className="mt-2 text-sm text-white/70 max-w-md">
-            Personal website & digital store. Built loud, shipped bold.
+            A place where I share my work
           </p>
         </div>
         <div className="flex md:justify-end items-start gap-3">
@@ -15,7 +15,7 @@ export function Footer() {
             { Icon: Github, label: 'GitHub', value: '@Solthera', href: 'https://github.com/Solthera', target: "_blank", rel: "noopener noreferrer" },
             { Icon: Linkedin, label: 'LinkedIn', value: '/in/neodev', href: 'https://www.linkedin.com/in/muhammad-farel-firdaus-b7234530a/', target: "_blank", rel: "noopener noreferrer" },
             { Icon: Instagram, label: 'Instagram', value: '@farellfrs', href: 'https://www.instagram.com/farellfrs/', target: "_blank", rel: "noopener noreferrer" },
-            { Icon: Mail, label: 'Email', value: 'hi@neo.dev', href: 'mailto:hi@neo.dev', target: "_blank", rel: "noopener noreferrer" },
+            { Icon: Mail, label: 'Email', value: 'farelfrr09@gmail.com', href: '#', rel: "noopener noreferrer" },
           ].map(({ Icon, label, href, target, rel }) => (
             <a
               key={label}
