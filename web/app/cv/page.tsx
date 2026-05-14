@@ -32,42 +32,86 @@ const sections = [
 export const metadata = { title: 'Farel Personal Website' }
 
 export default function CV() {
+  const experienceItems = sections[0].items
+  const educationItems = sections[1].items
+  const skillItems = sections[2].items
+
   return (
     <Layout>
       <PageHeader title="Curriculum Vitae" subtitle="Summary of experience, education, and expertise." accent="yellow" />
 
-      <div className="mx-auto max-w-4xl px-4 py-10">
-        <div className="flex justify-end mb-6">
+      <div className="mx-auto max-w-5xl px-4 py-10">
+        <div className="flex justify-end mb-8">
           <PrintButton />
         </div>
 
-        <article className="nb-card nb-shadow-lg p-8 md:p-12">
-          <header className="border-b-4 border-black pb-6 mb-8">
-            <h2 className="font-display text-4xl md:text-5xl font-bold">Rafael Setiawan</h2>
-            <p className="mt-2 text-lg">Full-stack Developer & Designer</p>
-            <p className="mt-1 font-mono text-sm text-black/60">hi@neo.dev · Jakarta, Indonesia</p>
-          </header>
+        {/* Header Card */}
+        <div className="border-4 border-black bg-black text-white p-8 md:p-12 mb-12 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+          <h2 className="font-display text-5xl md:text-6xl font-bold leading-tight">Rafael Setiawan</h2>
+          <p className="mt-4 text-xl font-bold">Full-stack Developer & Designer</p>
+          <p className="mt-2 font-mono text-sm text-white/70">hi@neo.dev · Jakarta, Indonesia</p>
+        </div>
 
-          {sections.map((sec) => (
-            <section key={sec.title} className="mb-10 last:mb-0">
-              <h3 className={`font-display text-2xl font-bold uppercase border-l-8 ${sec.color} pl-4 mb-6`}>
-                {sec.title}
-              </h3>
-              <div className="space-y-6">
-                {sec.items.map((it, i) => (
-                  <div key={i} className="grid gap-2 md:grid-cols-[160px_1fr] border-b-2 border-dashed border-black/30 pb-4 last:border-0">
-                    <div className="font-mono text-sm font-bold uppercase">{it.period}</div>
-                    <div>
-                      <div className="font-bold text-lg">{it.h}</div>
-                      {it.sub && <div className="text-sm text-black/60">{it.sub}</div>}
-                      {it.body && <p className="mt-2 text-black/80">{it.body}</p>}
-                    </div>
+        {/* Experience Section */}
+        <section className="mb-16">
+          <div className="bg-[#3B82F6] border-4 border-black p-4 mb-6 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+            <h3 className="font-display text-3xl font-bold text-white uppercase">Experience</h3>
+          </div>
+          <div className="space-y-4">
+            {experienceItems.map((item, i) => (
+              <div key={i} className="border-4 border-black p-6 bg-white shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-3">
+                  <div>
+                    <div className="font-display text-2xl font-bold">{item.h}</div>
+                    <div className="text-sm font-bold text-black/60 uppercase">{item.sub}</div>
                   </div>
-                ))}
+                  <div className="bg-[#FFE500] border-2 border-black px-3 py-1 font-mono text-xs font-bold whitespace-nowrap">
+                    {item.period}
+                  </div>
+                </div>
+                <p className="text-black/80 leading-relaxed">{item.body}</p>
               </div>
-            </section>
-          ))}
-        </article>
+            ))}
+          </div>
+        </section>
+
+        {/* Education Section */}
+        <section className="mb-16">
+          <div className="bg-[#FF3B3B] border-4 border-black p-4 mb-6 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+            <h3 className="font-display text-3xl font-bold text-white uppercase">Education</h3>
+          </div>
+          <div className="space-y-4">
+            {educationItems.map((item, i) => (
+              <div key={i} className="border-4 border-black p-6 bg-white shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-3">
+                  <div>
+                    <div className="font-display text-2xl font-bold">{item.h}</div>
+                    <div className="text-sm font-bold text-black/60 uppercase">{item.sub}</div>
+                  </div>
+                  <div className="bg-[#FFE500] border-2 border-black px-3 py-1 font-mono text-xs font-bold whitespace-nowrap">
+                    {item.period}
+                  </div>
+                </div>
+                <p className="text-black/80 leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Skills Section */}
+        <section>
+          <div className="bg-[#22C55E] border-4 border-black p-4 mb-6 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+            <h3 className="font-display text-3xl font-bold text-white uppercase">Core Skills</h3>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {skillItems.map((item, i) => (
+              <div key={i} className="border-4 border-black p-6 bg-white shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
+                <div className="font-display text-lg font-bold uppercase text-black/60 mb-3">{item.period}</div>
+                <div className="font-bold text-sm leading-relaxed">{item.h}</div>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </Layout>
   )

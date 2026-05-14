@@ -14,16 +14,43 @@ type Project = {
   tags: string[]
   year: number
   color: string
+  image: string
+  linkLiveDemo: string
+  linkSourceCode: string
+  status: 'completed' | 'soon'
 }
 
 const projects: Project[] = [
-  { id: '1', name: 'Lumen Notes', desc: 'Markdown notes app focused on speed and keyboard-first experience.', long: 'Lumen Notes is a lightweight markdown editor with cloud sync, command palette, and simple plugins for power users.', tags: ['React', 'Tauri', 'Rust'], year: 2024, color: 'bg-[var(--yellow)]' },
-  { id: '2', name: 'Pulse Analytics', desc: 'Real-time analytics dashboard without cookie tracking.', long: 'Privacy-first analytics with bold dashboard and simple API to install on any project.', tags: ['Next.js', 'PostgreSQL', 'Go'], year: 2024, color: 'bg-[var(--blue)]' },
-  { id: '3', name: 'Brick Store', desc: 'Neobrutalism ecommerce template for indie sellers.', long: 'Complete template for selling online with neobrutalism vibe, includes cart, checkout and dashboard.', tags: ['Tailwind', 'Stripe', 'Remix'], year: 2023, color: 'bg-[var(--green)]' },
-  { id: '4', name: 'Echo Player', desc: 'Open source music player with minimalist visualizer.', long: 'Lightweight desktop music player with visualizer and focus on clean design.', tags: ['Electron', 'TypeScript'], year: 2023, color: 'bg-[var(--red)]' },
-  { id: '5', name: 'Type Lab', desc: 'Playground to explore typography and font combinations.', long: 'Web tool for designers and developers to find the right font pairing for their projects.', tags: ['Vite', 'React'], year: 2022, color: 'bg-white' },
-  { id: '6', name: 'Crate CLI', desc: 'CLI scaffolding tool for TypeScript monorepo.', long: 'Opinionated CLI to generate ready-to-use TypeScript monorepo with workspace, eslint and CI.', tags: ['Node.js', 'TypeScript'], year: 2022, color: 'bg-[var(--yellow)]' },
+  { id: '1', name: 'Smartlock', desc: 'Open the door with just a tap card and close it automatically.', long: 'Smartlock is a project that combines IoT with Blockchain, IoT is used as a physical activity while blockchain is used as a database.', tags: ['IoT', 'Blockchain', 'Foundry'], year: 2025, color: 'bg-[var(--yellow)]', image: '/images/portfolio-assets/smartlock.jpeg', linkLiveDemo: '#', linkSourceCode: 'https://github.com/Itsjustrell/Smartlock', status: 'completed' },
+  { id: '2', name: 'LUMINA', desc: 'Makes it easier to find items or tools if someone needs them.', long: 'LUMINA is a goods procurement system at the community level to make it easier for residents to carry out their activities if they need goods or tools.', tags: ['Java', 'Spring Boot', 'PostgreSQL'], year: 2026, color: 'bg-[var(--blue)]', image: '/images/portfolio-assets/pulse.png', linkLiveDemo: '#', linkSourceCode: '#', status: 'soon' },
+  { id: '3', name: 'AssistFi', desc: 'Record finances easily and display a dashboard to make it easier to view financial data.', long: 'AssistFi is a website that makes financial recording easier, with a CSV import feature that will immediately calculate and analyze financial data, then can be exported again with structured data.', tags: ['Javascript', 'Python', 'React'], year: 2026, color: 'bg-[var(--green)]', image: '/images/portfolio-assets/brick.png', linkLiveDemo: '#', linkSourceCode: '#', status: 'soon' },
 ]
+
+function ProjectImage({ project, variant = 'card' }: { project: Project; variant?: 'card' | 'modal' }) {
+  if (project.status === 'soon') {
+    return (
+      <div className="border-b-2 border-black aspect-[4/3] overflow-hidden bg-amber-200 flex items-center justify-center relative">
+        {/* decorative elements */}
+        <div className="absolute top-3 left-3 w-6 h-6 bg-[var(--yellow)] border-2 border-black"></div>
+        <div className="absolute bottom-3 right-3 w-6 h-6 bg-[var(--blue)] border-2 border-black"></div>
+        <div className="absolute top-3 right-8 w-4 h-4 bg-black"></div>
+        <div className="absolute bottom-3 left-8 w-4 h-4 bg-[var(--yellow)] border-2 border-black"></div>
+        
+        <div className="border-[4px] border-black bg-white p-8 shadow-[8px_8px_0px_0px_#000] rotate-[-2deg]">
+          <span className="font-display text-4xl font-bold uppercase tracking-widest text-black">Coming</span>
+          <br />
+          <span className="font-display text-4xl font-bold uppercase tracking-widest text-[var(--yellow)] bg-black px-2">Soon</span>
+        </div>
+      </div>
+    )
+  }
+  const imgClass = variant === 'modal' ? 'border-2 border-black' : ''
+  return (
+    <div className="border-b-2 border-black aspect-[4/3] overflow-hidden bg-gray-100">
+      <img src={project.image} alt={project.name} className={`w-full h-full object-cover ${imgClass}`} />
+    </div>
+  )
+}
 
 export default function Portfolio() {
   const [active, setActive] = useState<Project | null>(null)
@@ -58,9 +85,7 @@ export default function Portfolio() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p) => (
             <article key={p.id} className="nb-card nb-interactive flex flex-col">
-              <div className={`${p.color} border-b-2 border-black aspect-[4/3] flex items-center justify-center`}>
-                <span className="font-display text-3xl font-bold">{p.name}</span>
-              </div>
+              <ProjectImage project={p} />
               <div className="p-4 flex-1 flex flex-col gap-3">
                 <div className="flex items-center justify-between">
                   <div className="flex flex-wrap gap-1.5">
@@ -98,18 +123,20 @@ export default function Portfolio() {
                 <X size={16} />
               </button>
             </div>
-            <div className={`${active.color} aspect-[16/9] border-b-2 border-black flex items-center justify-center`}>
-              <span className="font-display text-6xl font-bold opacity-80">{active.name}</span>
-            </div>
-            <div className="p-6">
-              <div className="flex flex-wrap gap-2 mb-4">
+            <div className="p-6 pt-0">
+              <ProjectImage project={active} variant="modal" />
+              <div className="flex flex-wrap gap-2 mb-4 mt-4">
                 {active.tags.map((t, i) => <Tag key={t} color={i + 1}>{t}</Tag>)}
                 <Tag color={5}>{active.year}</Tag>
               </div>
               <p className="text-base text-black/80">{active.long}</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <NbButton variant="primary"><ExternalLink size={16} />Live Demo</NbButton>
-                <NbButton variant="yellow"><Code2 size={16} />Source Code</NbButton>
+                <a href={active.linkLiveDemo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 flex-1 border-2 border-black bg-[var(--blue)] py-2 px-4 font-bold uppercase text-sm nb-shadow-sm nb-interactive">
+                  <ExternalLink size={16} />Live Demo
+                </a>
+                <a href={active.linkSourceCode} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 flex-1 border-2 border-black bg-[var(--yellow)] py-2 px-4 font-bold uppercase text-sm nb-shadow-sm nb-interactive">
+                  <Code2 size={16} />Source Code
+                </a>
               </div>
             </div>
           </div>

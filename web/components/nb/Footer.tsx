@@ -22,7 +22,7 @@ export function Footer() {
               href={href}
               target={target}
               rel={rel}
-              className="border-2 border-white p-2 nb-shadow-white hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform"
+              className="border-2 border-white p-2 bg-black shadow-[4px_4px_0px_0px_white] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_white] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[0px_0px_0px_0px_white] transition-all duration-120"
             >
               <Icon size={18} />
             </a>
