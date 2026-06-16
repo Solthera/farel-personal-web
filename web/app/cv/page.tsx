@@ -129,6 +129,12 @@ export default function CV() {
                     desc: 'A decentralized voting application built on smart contracts, enabling a transparent and tamper-proof voting process.',
                     tags: ['Solidity', 'JavaScript', 'Ethers.js', 'Web3'],
                   },
+                  {
+                    name: 'LUMINA', period: '2026',
+                    sub: 'Makes it easier to find items or tools if someone needs them.',
+                    desc: 'A community level goods procurement application.',
+                    tags: ['Spring Boot', 'React', 'Supabase'],
+                  },
                 ].map(({ name, period, sub, desc, tags }) => (
                   <div key={name} className="border-2 border-black p-4 bg-white shadow-[4px_4px_0px_0px_#000]">
                     <div className="flex justify-between items-start gap-4 mb-1">
