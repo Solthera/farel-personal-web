@@ -135,6 +135,12 @@ export default function CV() {
                     desc: 'A community level goods procurement application.',
                     tags: ['Spring Boot', 'React', 'Supabase'],
                   },
+                  {
+                    name: 'Rambutan Ripeness', period: '2026',
+                    sub: 'Analyze the maturity level of rambutan with 70.00% accuracy',
+                    desc: 'Analyze the maturity level of rambutan using HSV and the KNN model with 250 datasets',
+                    tags: ['Python', 'KNN', 'HSV'],
+                  },
                 ].map(({ name, period, sub, desc, tags }) => (
                   <div key={name} className="border-2 border-black p-4 bg-white shadow-[4px_4px_0px_0px_#000]">
                     <div className="flex justify-between items-start gap-4 mb-1">
